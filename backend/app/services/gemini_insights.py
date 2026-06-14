@@ -66,16 +66,18 @@ User request:
         response = model.generate_content(prompt)
         return response.text
     except Exception as e:
-        return f"""
-    AI insights are temporarily unavailable.
+        return """
+### Dataset Insights
 
-    Reason:
-    {str(e)}
+AI service is currently unavailable.
 
-    Suggested analysis:
-    • Check missing values
-    • Identify outliers
-    • Compare distributions
-    • Analyze correlations
-    • Review data quality
-    """
+Meanwhile, consider:
+
+• Checking missing values
+• Reviewing outliers
+• Comparing category distributions
+• Analyzing correlations
+• Monitoring revenue trends
+
+Retry later for AI-generated recommendations.
+"""

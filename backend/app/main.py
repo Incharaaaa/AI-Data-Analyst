@@ -3,7 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.routers import analysis, insights, upload
+from app.routes.upload import router as upload_router
+from app.routes.analysis import router as analysis_router
 
+app.include_router(upload_router)
+app.include_router(analysis_router)
 app = FastAPI(
     title="AI Data Analyst API",
     description="Upload datasets, get summaries, charts, and AI insights.",
