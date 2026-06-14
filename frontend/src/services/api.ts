@@ -5,7 +5,8 @@ import type {
   UploadResponse,
 } from "../types";
 
-cors_origins: str = "*"
+const API_BASE = "https://ai-data-analyst-backend-nhrt.onrender.com";
+
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
     const err = await res.json().catch(() => ({ detail: res.statusText }));
