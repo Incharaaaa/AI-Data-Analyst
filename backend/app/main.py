@@ -1,13 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config import settings
 from app.routers import analysis, insights, upload
-from app.routes.upload import router as upload_router
-from app.routes.analysis import router as analysis_router
 
-app.include_router(upload_router)
-app.include_router(analysis_router)
 app = FastAPI(
     title="AI Data Analyst API",
     description="Upload datasets, get summaries, charts, and AI insights.",
@@ -16,7 +11,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origin_list,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -25,7 +20,6 @@ app.add_middleware(
 app.include_router(upload.router)
 app.include_router(analysis.router)
 app.include_router(insights.router)
-
 
 @app.get("/health")
 async def health():
