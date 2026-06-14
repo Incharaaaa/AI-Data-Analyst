@@ -5,7 +5,7 @@ import type {
   UploadResponse,
 } from "../types";
 
-const API_BASE = "";
+const API_BASE = "https://ai-data-analyst-backend-nhrt.onrender.com";
 
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
